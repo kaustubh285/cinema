@@ -30,28 +30,29 @@ export default function Movies({ movie }) {
           </p>
         </div>
         <div className="col-lg-3 text-center">
-          <img
-            className=""
-            src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2/${movie.poster_path}`}
-            alt={movie.title + " poster"}
-          />
-          <div className="col-sm-12 card-meta2">
+          <div className="col-sm-12 card-meta2 text-left">
             <div>
-              <p>
-                <small className="Movie-titles">
+              <p class="d-flex">
+                <small className="Movie-titles w-100">
                   <b>
                     <u>{movie.title}</u>
                   </b>
                 </small>
+
+                <small className="movie-date pt-2">
+                  {"  (" + movie.release_date + ")"}
+                </small>
               </p>
-            </div>
-            <div>
-              <small> {"  (" + movie.release_date + ")"}</small>
             </div>
             <p>
               <small>{"Movie rating: " + movie.vote_average}</small>
             </p>
           </div>
+          <img
+            className="pb-1"
+            src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2/${movie.poster_path}`}
+            alt={movie.title + " poster"}
+          />
         </div>
       </div>
     </div>
