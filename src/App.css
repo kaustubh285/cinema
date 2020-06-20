@@ -25,6 +25,10 @@ input {
   background-color: rgba(0, 0, 0, 0.6);
 } */
 
+.Movie-titles {
+  font-size: larger;
+}
+
 @media (min-width: 786px) {
   .Form {
     grid-template-columns: auto 1fr auto;
@@ -34,8 +38,22 @@ input {
   input {
     margin-bottom: 0;
   }
+  .card-meta2 {
+    display: none !important;
+  }
 }
 
-.Movie-titles {
-  font-size: larger;
+@media (max-width: 786px) {
+  .Form {
+    padding: 30px;
+    align-items: center;
+  }
+  .card-meta1 {
+    display: none !important;
+  }
+  .card-meta2 {
+  }
+  .text-center {
+    padding-top: 5px;
+  }
 }
