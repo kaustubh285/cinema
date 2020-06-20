@@ -8,7 +8,7 @@ export default function Movies({ movie }) {
       // style={{ backgroundColor: "rgba(255, 242, 230,0.1)" }}
     >
       <div className="row ">
-        <div className="col-lg-12 d-flex justify-content-between">
+        <div className="col-lg-12 d-flex justify-content-between card-meta1">
           <p>
             <small className="Movie-titles">
               <b>
@@ -25,16 +25,33 @@ export default function Movies({ movie }) {
       </div>
       <div className="row flex-column-reverse flex-md-row">
         <div className="col-lg-9">
-          <p>
+          <p style={{ textAlign: "justify" }}>
             <small>{movie.overview}</small>
           </p>
         </div>
-        <div className="col-lg-3">
+        <div className="col-lg-3 text-center">
           <img
             className=""
             src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2/${movie.poster_path}`}
             alt={movie.title + " poster"}
           />
+          <div className="col-sm-12 card-meta2">
+            <div>
+              <p>
+                <small className="Movie-titles">
+                  <b>
+                    <u>{movie.title}</u>
+                  </b>
+                </small>
+              </p>
+            </div>
+            <div>
+              <small> {"  (" + movie.release_date + ")"}</small>
+            </div>
+            <p>
+              <small>{"Movie rating: " + movie.vote_average}</small>
+            </p>
+          </div>
         </div>
       </div>
     </div>

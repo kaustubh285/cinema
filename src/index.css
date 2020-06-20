@@ -22,7 +22,17 @@ small {
   max-width: 1000px;
   padding: 40px;
 }
-
-.title {
-  font-size: 4.4rem;
+@media (min-width: 786px) {
+  .title {
+    font-size: 4.4rem;
+  }
+}
+@media (max-width: 786px) {
+  .container {
+    padding: 9px;
+  }
+  .title {
+    padding-top: 20px;
+    font-size: 2.2rem;
+  }
 }
