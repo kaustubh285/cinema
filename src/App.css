@@ -51,9 +51,9 @@ input {
   .card-meta1 {
     display: none !important;
   }
-  .movie-date {
+  /* .movie-date {
     align-items: flex-end;
-  }
+  } */
   .text-center {
     padding-top: 5px;
   }
