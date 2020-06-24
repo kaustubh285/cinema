@@ -32,8 +32,8 @@ export default function Movies({ movie }) {
         <div className="col-lg-3 text-center">
           <div className="col-sm-12 card-meta2 text-left">
             <div>
-              <p class="d-flex">
-                <small className="Movie-titles w-100">
+              <p className="mytitles">
+                <small className="Movie-titles">
                   <b>
                     <u>{movie.title}</u>
                   </b>
