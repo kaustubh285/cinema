@@ -1,21 +1,26 @@
 import React from "react";
 import "./App.css";
 import Searcher from "./Searcher";
+import Navigator from "./Navigator";
 import SeriesSearcher from "./SeriesSearcher";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className='container'>
-      <p className='title text-center text-dark pb-5'>Welcome To Cinema!</p>
-      <Router>
-        <Switch>
-          <Route path='/' exact component={Searcher} />
-          <Route path='/tv' exact component={SeriesSearcher} />
-          <Route path='/' component={Nourl} />
-        </Switch>
-      </Router>
-    </div>
+    <>
+      <Navigator />
+
+      <div className='container'>
+        <p className='title text-center text-dark pb-5'>Welcome To Cinema!</p>
+        <Router>
+          <Switch>
+            <Route path='/' exact component={Searcher} />
+            <Route path='/tv' exact component={SeriesSearcher} />
+            <Route path='/' component={Nourl} />
+          </Switch>
+        </Router>
+      </div>
+    </>
   );
 }
 
