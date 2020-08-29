@@ -11,7 +11,7 @@ export default function Searcher() {
     event.preventDefault();
     var errorDiv = document.getElementById("errordiv");
     if (query === "") {
-      errorDiv.setAttribute("class", "d-block alert alert-danger");
+      errorDiv.setAttribute("class", "d-block ");
     } else {
       var loading = document.getElementById("Loader");
       loading.setAttribute("class", "d-block");
@@ -32,14 +32,12 @@ export default function Searcher() {
   return (
     <>
       <div>
-        <div className='d-none' id='errordiv'>
-          <p className='text-center '>Please enter Movie Name</p>
-        </div>
         <form className='Form pb-2' onSubmit={searchMovies}>
           <label htmlFor='query' className='label'>
             Movie Name
           </label>
           <input
+            required
             type='text'
             name='query'
             placeholder='i.e star wars'
@@ -52,6 +50,16 @@ export default function Searcher() {
           Search
         </button> */}
         </form>
+        <div
+          className='d-none w-50'
+          id='errordiv'
+          style={{ maxWidth: "50%", alignContent: "center" }}>
+          <p
+            className='text-center alert alert-danger text-dark'
+            style={{ fontSize: "small", height: 20, padding: 0 }}>
+            Please enter Movie Name
+          </p>
+        </div>
         <div className='d-none pt-3' align='center' id='Loader'>
           <i className='fa fa-spinner fa-spin fa-3x fa-fw'></i>
           <span className='sr-only'>Loading...</span>
