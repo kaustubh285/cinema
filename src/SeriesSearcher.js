@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Series from "./Series";
 import { Button } from "@material-ui/core";
 import "./font-awesome-4.7.0/css/font-awesome.min.css";
+import { Link } from "react-router-dom";
 
 export default function Searcher() {
   const [query, setQuery] = useState("");
@@ -14,6 +15,7 @@ export default function Searcher() {
       errorDiv.setAttribute("class", "d-block alert alert-danger");
     } else {
       var loading = document.getElementById("Loader");
+      var no_content = document.getElementById("no-content");
       loading.setAttribute("class", "d-block");
       errorDiv.setAttribute("class", "d-none");
 
@@ -21,6 +23,11 @@ export default function Searcher() {
       try {
         const res = await fetch(url);
         const data = await res.json();
+        if (data.total_results === 0) {
+          no_content.setAttribute("class", "d-block text-center");
+        } else {
+          no_content.setAttribute("class", "d-none");
+        }
         loading.setAttribute("class", "d-none");
         setMovies(data.results);
       } catch (err) {
@@ -40,6 +47,7 @@ export default function Searcher() {
             Series Name
           </label>
           <input
+            required
             type='text'
             name='query'
             placeholder='i.e the big bang theory'
@@ -53,7 +61,18 @@ export default function Searcher() {
           <i className='fa fa-spinner fa-spin fa-3x fa-fw'></i>
           <span className='sr-only'>Loading...</span>
         </div>
-
+        <div id='no-content' className='d-none text-center'>
+          <h4 className='alert alert-secondary pb-0'>
+            <span role='img' aria-label='sad-face'>
+              {" "}
+              &#128577;{" "}
+            </span>{" "}
+            Sorry, No series found.
+            <p style={{ fontSize: 15 }}>
+              Maybe You'll find it in the <Link to='/'>movies section</Link>
+            </p>
+          </h4>
+        </div>
         <div className=''>
           {movies.map((movie) => (
             <Series movie={movie} key={movie.id} />
