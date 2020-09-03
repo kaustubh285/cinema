@@ -8,6 +8,7 @@ export default function Searcher() {
   const [query, setQuery] = useState("");
 
   const [movies, setMovies] = useState([]);
+  const API_KEY = process.env.REACT_APP_TMDB_API;
   const searchMovies = async (event) => {
     event.preventDefault();
     var errorDiv = document.getElementById("errordiv");
@@ -19,7 +20,7 @@ export default function Searcher() {
       loading.setAttribute("class", "d-block");
       errorDiv.setAttribute("class", "d-none");
 
-      const url = `https://api.themoviedb.org/3/search/tv?api_key=0d3ca7edae2d9cb14c86ce991530aee6&language=en-US&page=1&query=${query}&page=1&include_adult=true`;
+      const url = `https://api.themoviedb.org/3/search/tv?api_key=${API_KEY}&language=en-US&page=1&query=${query}&page=1&include_adult=true`;
       try {
         const res = await fetch(url);
         const data = await res.json();
